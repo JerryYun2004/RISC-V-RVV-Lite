@@ -1,0 +1,3 @@
+[submodule "third_party/cva5"]
+	path = third_party/cva5
+	url = https://github.com/openhwgroup/cva5.git

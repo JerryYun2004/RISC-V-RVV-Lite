@@ -1,0 +1,11 @@
+
+# Verilator build artifacts
+sim/obj_dir/
+*.vcd
+*.fst
+*.o
+*.d
+cva5-sim
+
+# macOS noise
+.DS_Store

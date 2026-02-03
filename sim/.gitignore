@@ -1,11 +1,14 @@
-
 # Verilator build artifacts
 sim/obj_dir/
-*.vcd
-*.fst
-*.o
-*.d
-cva5-sim
+**/obj_dir/
 
-# macOS noise
-.DS_Store
+# Simulation outputs
+sim/*.log
+sim/*.fst
+sim/*.vcd
+sim/*.csv
+sim/signature.out
+sim/pc.log
+sim/run.log
+sim/trace.log
+sim/build.log

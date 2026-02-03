@@ -9,6 +9,14 @@ CVA5_SIM_SV  := $(CVA5_DIR)/test_benches/verilator/cva5_sim.sv
 
 include $(CVA5_DIR)/tools/cva5.mak
 
+override CFLAGS += -DPC_TRACE_ON -DSTARTING_ADDR=0x80000000
+override DETERMINISTIC := 1
+
+# Add C++ preprocessor defines through CVa5's Verilator CFLAGS hook
+override CFLAGS += -DPC_TRACE_ON
+override DETERMINISTIC := 1
+
+
 # Override the lint target from cva5.mak (it points to the wrong sim_stats path)
 .PHONY: lint
 lint:

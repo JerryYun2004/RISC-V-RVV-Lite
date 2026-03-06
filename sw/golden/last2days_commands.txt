@@ -1,0 +1,10 @@
+ 1450  make -C obj_dir -f Vcve2_top.mk -j 8
+ 1451  find .. -name prince_ref.h
+ 1452  rm -rf obj_dir\n\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --top-module cve2_top \\n  --Mdir obj_dir \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  -CFLAGS "-I../../src/lowrisc_dv_crypto_prince_ref_0.1" \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp
+ 1453  make -C obj_dir -f Vcve2_top.mk -j 8
+ 1454  ls -la obj_dir/Vcve2_top
+ 1456  ls -l prog.hex\nwc -c prog.hex\nhead -n 20 prog.hex
+ 1459  cd ../../../../..
+ 1461  cd third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1464  echo $HISTTIMEFORMAT
+ 1465  export HISTTIMEFORMAT="%F %T "

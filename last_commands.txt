@@ -1,0 +1,977 @@
+  500  pip install matplotlib.py
+  501  pip install matplotlib
+  502  cd tu1env
+  503  cd ..
+  504  cd tutorial1
+  505  python3 hw_problem2.py
+  506  python3 hw_problem2.py
+  507  python3 hw_problem2.py
+  508  cd ..
+  509  git add .
+  510  git commit -m "tutorial 1"
+  511  git push
+  512  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  513  git commit
+  514  git add .
+  515  git commit -m "v0 commit 1"
+  516  git push
+  517  git add .
+  518  git commit -m "added image"
+  519  git push
+  520  git pull
+  521  git pull
+  522  git pull
+  523  git config pull.rebase false  # merge
+  524  git merge
+  525  git add .
+  526  git commit -m "added Amden image"
+  527  git push
+  528  ls
+  529  cd Desktop
+  530  git clone https://github.com/JerryYun2004/CPSC259.git\n
+  531  cd CPSC259
+  532  cd Desktop
+  533  cd CPSC259
+  534  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  535  /Users/jerryyun/CHBE244/tu1env/bin/python /Users/jerryyun/CHBE244/assignment1/a1_P2b.py
+  536  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  537  cd assignment1
+  538  python a1_P2b.py
+  539  \n^q
+  540  :q
+  541  python a1_P2b.py
+  542  python a1_p4_a
+  543  python a1_P4_a.py
+  544  python a1_P5_b.py
+  545  python a1_P5_b.py
+  546  python a1_P6_b.py
+  547  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  548  python3 -m venv venv\n
+  549  source venv/bin/activate
+  550  pip install numpy matplotlib mpmath\n
+  551  python assignment3_P4.py
+  552  pip install numpy matplotlib scipy
+  553  python assignment3_P5.py
+  554  python assignment3_P4.py
+  555  source venv/bin/activate
+  556  python assignment3_P4.py
+  557  python assignment3_P5.py
+  558  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  559  pip
+  560  cd assignment3
+  561  pyhon a3_P1_a.py
+  562  python3 a3_P1_a.py
+  563  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  564  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  565  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  566  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  567  cd assignment4
+  568  python3 a4_P2_c.py
+  569  pip install scipy
+  570  python3 a4_P2_c.py
+  571  python3 a4_P2_c.py
+  572  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  573  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  574  cd assignment5
+  575  python3 a5p1a.py
+  576  python3 a5p3e.py
+  577  python3 a5p1a.py
+  578  python3 a5p3e.py
+  579  source /Users/jerryyun/CHBE244/tu1env/bin/activate
+  580  cd ~/Desktop\ngit clone https://github.com/JerryYun2004/statistical_analysis.git\n
+  581  cd ./statistical_analysis/
+  582  brew install fltk mpfi readline libxft jpeg gsl ntl glpk libsamplerate autoconf automake pari libao libusb wget dfu-util hevea
+  583  cd ~/Desktop/statistical_analysis/academic_analysis
+  584  python3 -m venv venv
+  585  source venv/bin/activate
+  586  pip install -r requirements.txt
+  587  pip install -r requirements.txt
+  588  pip install --upgrade pip
+  589  python3 ./plot_grade.py
+  590  python3 ./plot_grade_letter.py
+  591  mkdir figures\n
+  592  git add figures/\ngit commit -m "Add grade analysis plots"\ngit push\n
+  593  cd academic_analysis\ntouch README.md\n
+  594  touch README.md
+  595  git commit -m "Add ReadMe"
+  596  git add README.md
+  597  git commit -m "Add ReadMe"
+  598  git push
+  599  git add --all
+  600  git commit -m "added python code"
+  601  git push
+  602  git commit -m "Add ReadMe"
+  603  git add README.md
+  604  git commit -m "Add ReadMe"
+  605  git push
+  606  source venv/bin/activate
+  607  python3 ./plot_grade.py
+  608  python3 ./plot_grade_letter.py
+  609  cd ..
+  610  ls
+  611  cd ./project_analysis/
+  612  touch README.md
+  613  cd ..
+  614  git add .
+  615  git commit -m "updated graph for academics, and added new sections"
+  616  git push
+  617  cd ./travel_analysis/
+  618  python3 ./destinations.py
+  619  """\ntravel_2025_maps.py\n\nWhat it does:\n1) Count unique cities visited in 2025\n2) Count unique countries visited in 2025\n3) Plot yellow dots for destinations on a world map\n4) Plot a choropleth: visited countries (light orange) vs not visited (light blue)\n\nInstall:\n  pip install pandas matplotlib geopandas shapely geopy pycountry requests\n\nRun:\n  python travel_2025_maps.py\n\nOutputs:\n  - prints counts to console\n  - saves:\n      destinations_2025.png\n      countries_visited_2025.png\n  - also pops up plots (if your environment supports it)\n"""\n\nfrom __future__ import annotations\n\nimport json\nimport time\nfrom pathlib import Path\nfrom typing import Dict, List, Tuple, Optional\n\nimport pycountry\nimport matplotlib.pyplot as plt\nimport geopandas as gpd\nfrom geopy.geocoders import Nominatim\nfrom geopy.extra.rate_limiter import RateLimiter\n\n\n# -----------------------------\n# Your 2025 destinations (raw)\n# -----------------------------\nRAW_PLACES = [\n    "bangkok",\n    "shanghai",\n    "shenzhen",\n    "hongkong",\n    "shanghai",\n    "zurich",\n    "milan",\n    "garda",\n    "verona",\n    "bologna",\n    "florence",\n    "pisa",\n    "la spezia",\n    "zurich",\n    "berlin",\n    "warsaw",\n    "krakow",\n    "vienna",\n    "zurich",\n    "amden (switerland)",      # misspelling in your list; we’ll normalize\n    "zurich",\n    "shanghai",\n    "hongkong",\n    "shanghai",\n    "bangkok",\n    "zurich",\n    "stuttgart",\n    "zurich",\n    "zermatt",\n    "oeschinen lake",\n    "zurich",\n    "stuttgart",\n    "rome",\n    "vatican city",\n    "fiumicino",\n    "stuttgart",\n    "munich",\n    "salzburg",\n    "innsbruck",\n    "stuttgart",\n    "split",\n    "stuttgart",\n    "lahr/schwarzwald (germany)",\n    "stuttgart",\n    "zurich",\n    "stuttgart",\n    "zurich",\n    "schaan",\n    "lucerne",\n    "zurich",\n    "vancouver",\n    "banff",\n    "yellowknife",\n    "seoul",\n    "phuket",\n]\n\n\n# -----------------------------\n# Geocoding cache\n# -----------------------------\nCACHE_PATH = Path("geocode_cache_2025.json")\n\n\ndef normalize_place_name(name: str) -> str:\n    """Normalize tricky entries / common variants to improve geocoding accuracy."""\n    s = name.strip().lower()\n\n    # Fix obvious typos / variants\n    s = s.replace("hongkong", "hong kong")\n    s = s.replace("switerland", "switzerland")\n\n    # Expand ambiguous place names with hints\n    # (You can add more if anything geocodes weirdly.)\n    replacements = {\n        "garda": "Lake Garda, Italy",\n        "oeschinen lake": "Oeschinen Lake, Kandersteg, Switzerland",\n        "amden (switzerland)": "Amden, Switzerland",\n        "lahr/schwarzwald (germany)": "Lahr/Schwarzwald, Germany",\n        "lucerne": "Lucerne, Switzerland",\n        "zurich": "Zürich, Switzerland",\n        "vancouver": "Vancouver, BC, Canada",\n        "banff": "Banff, Alberta, Canada",\n        "yellowknife": "Yellowknife, Northwest Territories, Canada",\n        "fiumicino": "Fiumicino, Italy",\n        "vatican city": "Vatican City",\n    }\n\n    return replacements.get(s, name.strip())\n\n\ndef load_cache() -> Dict[str, dict]:\n    if CACHE_PATH.exists():\n        return json.loads(CACHE_PATH.read_text(encoding="utf-8"))\n    return {}\n\n\ndef save_cache(cache: Dict[str, dict]) -> None:\n    CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")\n\n\ndef country_to_iso3(country_name: str) -> Optional[str]:\n    """\n    Convert a country name to ISO3 code (for joining with Natural Earth world dataset).\n    Returns None if not found.\n    """\n    # Some common Nominatim country names / variants:\n    aliases = {\n        "united states": "United States",\n        "russia": "Russian Federation",\n        "south korea": "Korea, Republic of",\n        "north korea": "Korea, Democratic People's Republic of",\n        "vatican city": "Holy See (Vatican City State)",\n        "laos": "Lao People's Democratic Republic",\n        "iran": "Iran, Islamic Republic of",\n        "syria": "Syrian Arab Republic",\n        "bolivia": "Bolivia, Plurinational State of",\n        "tanzania": "Tanzania, United Republic of",\n        "moldova": "Moldova, Republic of",\n        "venezuela": "Venezuela, Bolivarian Republic of",\n        "brunei": "Brunei Darussalam",\n        "czechia": "Czech Republic",\n    }\n\n    c = country_name.strip()\n    c2 = aliases.get(c.lower(), c)\n\n    try:\n        return pycountry.countries.lookup(c2).alpha_3\n    except Exception:\n        return None\n\n\ndef geocode_places(places: List[str]) -> List[dict]:\n    """\n    Geocode each unique normalized place.\n    Returns list of dict entries:\n      { "query": ..., "display_name": ..., "lat": ..., "lon": ..., "city": ..., "country": ..., "country_iso3": ... }\n    """\n    cache = load_cache()\n\n    geolocator = Nominatim(user_agent="travel_2025_mapper")\n    geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1.1, swallow_exceptions=True)\n\n    unique_norm = sorted(set(normalize_place_name(p) for p in places))\n    results: List[dict] = []\n\n    for q in unique_norm:\n        if q in cache:\n            results.append(cache[q])\n            continue\n\n        loc = geocode(q)\n        if loc is None:\n            entry = {\n                "query": q,\n                "display_name": None,\n                "lat": None,\n                "lon": None,\n                "city": None,\n                "country": None,\n                "country_iso3": None,\n                "status": "NOT_FOUND",\n            }\n            cache[q] = entry\n            results.append(entry)\n            continue\n\n        # Reverse-ish parsing from Nominatim raw address (best-effort)\n        raw = getattr(loc, "raw", {}) or {}\n        addr = raw.get("address", {}) or {}\n\n        city = (\n            addr.get("city")\n            or addr.get("town")\n            or addr.get("village")\n            or addr.get("municipality")\n            or addr.get("county")\n            or addr.get("state")\n            or q\n        )\n        country = addr.get("country")\n\n        iso3 = country_to_iso3(country) if country else None\n\n        entry = {\n            "query": q,\n            "display_name": loc.address,\n            "lat": float(loc.latitude),\n            "lon": float(loc.longitude),\n            "city": str(city),\n            "country": str(country) if country else None,\n            "country_iso3": iso3,\n            "status": "OK",\n        }\n        cache[q] = entry\n        results.append(entry)\n\n    save_cache(cache)\n    return results\n\n\ndef plot_destinations_world(dests: List[dict], out_path: str = "destinations_2025.png") -> None:\n    world = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))\n    fig, ax = plt.subplots(figsize=(14, 7))\n    world.plot(ax=ax, linewidth=0.4)\n\n    # Yellow dots\n    xs, ys = [], []\n    for d in dests:\n        if d.get("status") == "OK" and d.get("lon") is not None and d.get("lat") is not None:\n            xs.append(d["lon"])\n            ys.append(d["lat"])\n\n    ax.scatter(xs, ys, s=35, marker="o", edgecolor="k", linewidth=0.4)\n\n    ax.set_title("Destinations in 2025 (yellow dots)")\n    ax.set_xlabel("Longitude")\n    ax.set_ylabel("Latitude")\n    ax.set_xlim([-180, 180])\n    ax.set_ylim([-90, 90])\n\n    plt.tight_layout()\n    plt.savefig(out_path, dpi=200)\n    plt.show()\n\n\ndef plot_countries_visited(dests: List[dict], out_path: str = "countries_visited_2025.png") -> None:\n    world = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))\n\n    visited_iso3 = set()\n    missing_iso3 = []\n\n    for d in dests:\n        if d.get("status") != "OK":\n            continue\n        iso3 = d.get("country_iso3")\n        if iso3:\n            visited_iso3.add(iso3)\n        else:\n            missing_iso3.append((d.get("query"), d.get("country")))\n\n    world["visited"] = world["iso_a3"].apply(lambda x: x in visited_iso3)\n\n    fig, ax = plt.subplots(figsize=(14, 7))\n    # not visited: light blue; visited: light orange\n    world[~world["visited"]].plot(ax=ax, linewidth=0.3, alpha=0.8)\n    world[world["visited"]].plot(ax=ax, linewidth=0.4, alpha=0.9)\n\n    ax.set_title("Countries visited in 2025 (visited vs not visited)")\n    ax.set_axis_off()\n\n    plt.tight_layout()\n    plt.savefig(out_path, dpi=200)\n    plt.show()\n\n    if missing_iso3:\n        print("\n[Warning] Some destinations had a country but no ISO3 match (won't color correctly):")\n        for q, c in missing_iso3:\n            print(f"  - {q} -> {c}")\n\n\ndef main() -> None:\n    dests = geocode_places(RAW_PLACES)\n\n    ok = [d for d in dests if d.get("status") == "OK" and d.get("country")]\n    not_found = [d for d in dests if d.get("status") != "OK"]\n\n    # Unique city count (best-effort based on geocoder's 'city' field)\n    unique_cities = sorted(set(d["city"].strip().lower() for d in ok if d.get("city")))\n    unique_countries = sorted(set(d["country"].strip().lower() for d in ok if d.get("country")))\n\n    print("===== 2025 Travel Summary =====")\n    print(f"Unique cities (best-effort): {len(unique_cities)}")\n    print(f"Unique countries:           {len(unique_countries)}")\n\n    # Optional: show lists\n    print("\nCities:")\n    for c in unique_cities:\n        print(f"  - {c}")\n\n    print("\nCountries:")\n    for c in unique_countries:\n        print(f"  - {c}")\n\n    if not_found:\n        print("\n[Geocode NOT FOUND] These entries could not be geocoded:")\n        for
+  620  pip install pandas matplotlib geopandas shapely geopy pycountry requests
+  621  python3 ./destinations.py
+  622  python3 ./destinations.py
+  623  rm geocode_cache_2025.json\npython3 destinations.py\n
+  624  rm geocode_cache_2025.json\npython3 destinations.py\n
+  625  rm geocode_cache_2025.json\npython3 destinations.py\n
+  626  touch README
+  627  git add .
+  628  git commit -m "added travel data for 2025"
+  629  git push
+  630  git add .
+  631  git commit -m "added travel data for 2025"
+  632  git push
+  633  git add .
+  634  git commit -m "added travel data for 2025"
+  635  git push
+  636  git add .
+  637  git commit -m "added travel data for 2025"
+  638  git push
+  639  git clone https://github.com/JerryYun2004/Run-Time-Adaptive-Numerical-Semantics.git\n
+  640  cd Run-Time-Adaptive-Numerical-Semantics\n
+  641  cd ..
+  642  cd ..
+  643  git add .
+  644  git commit -m "describing the project, and steps"
+  645  git push
+  646  mkdir logistics
+  647  cd ./logistics/
+  648  touch README.md
+  649  cd ..
+  650  mkdir background
+  651  touch README.md
+  652  cd ./background/
+  653  touch README.md
+  654  git add .
+  655  git commit -m "added background info on numerical semantics"
+  656  git push
+  657  cd ..
+  658  git add .
+  659  git commit -m "added logistics section"
+  660  git push
+  661  git add .
+  662  git commit -m "fix formating for background readme"
+  663  git push
+  664  git pull
+  665  git add .
+  666  git commit -m "added average grade comparison"
+  667  git push
+  668  cd ~/Desktop/statistical_analysis/academic_analysis
+  669  python3 -m venv venv
+  670  source venv/bin/activate
+  671  python3 ./mine_vs_average.py
+  672  git add .
+  673  git commit -m "added classavg comparisons"
+  674  git push
+  675  git add .
+  676  git commit -m "fixed plot naming"
+  677  git push
+  678  git add .
+  679  git commit -m "fixed filed address issues"
+  680  git push
+  681  git add .
+  682  git commit -m "restored correct background README"
+  683  git push
+  684  git clone https://github.com/JerryYun2004/IGEN330-Project.git\n
+  685  cd IGEN330-Project\ngit status\n
+  686  arduino-cli version\n
+  687  brew install arduino-cli\n
+  688  arduino-cli config init\narduino-cli core update-index\n
+  689  arduino-cli version\n
+  690  data_transmission/transmitter/transmitter.ino\n
+  691  code data_transmission/transmitter/transmitter.ino\n
+  692  cd transmitter
+  693  ls
+  694  cd data_transmission
+  695  cd transmitter
+  696  code transmitter.ino
+  697  transmitter.ino
+  698  git clone https://github.com/JerryYun2004/RISC-V-RVV-Lite.git
+  699  cd RISC-V-RVV-Lite
+  700  mkdir -p third_party
+  701  git submodule add https://github.com/openhwgroup/cva5.git third_party/cva5
+  702  git submodule update --init --recursive
+  703  git add .gitmodules third_party/cva5
+  704  git commit -m "Add CVa5 as a submodule"
+  705  git push
+  706  git status
+  707  git submodule status
+  708  cd third_party/cva5
+  709  ls
+  710  find . -maxdepth 3 -type f \( -iname "*verilator*" -o -iname "*vlt*" -o -iname "*sim*" -o -iname "Makefile*" -o -iname "*.mk" \)
+  711  grep -RIn "verilator\|vlt\|obj_dir\|make -C\|sim" README* docs* . 2>/dev/null | head -n 80
+  712  make help
+  713  make verilator
+  714  make sim
+  715  make test
+  716  cd ..
+  717  cd ..
+  718  mkdir -p sim
+  719  cat > sim/Makefile <<'EOF'\nCVA5_DIR := $(abspath ../third_party/cva5)\nCVA5_SIM_DIR := $(abspath ./obj_dir)\ninclude $(CVA5_DIR)/tools/cva5.mak\n\n.PHONY: all\nall: $(CVA5_SIM)\n\n.PHONY: clean\nclean:\n\trm -rf $(CVA5_SIM_DIR)\nEOF
+  720  cd sim
+  721  make -j\n
+  722  cat > sim/Makefile <<'EOF'\nCVA5_DIR := $(abspath ../third_party/cva5)\nCVA5_SIM_DIR := $(abspath ./obj_dir)\n\nSIM_STATS_SV := $(CVA5_DIR)/test_benches/verilator/sim_stats.sv\n\ninclude $(CVA5_DIR)/tools/cva5.mak\nCVA5_SIM_EXTRA_SRCS += $(SIM_STATS_SV)\n\n.PHONY: all\nall: $(CVA5_SIM)\n\n.PHONY: clean\nclean:\n\trm -rf $(CVA5_SIM_DIR)\nEOF
+  723  cat > Makefile <<'EOF'\nCVA5_DIR := $(abspath ../third_party/cva5)\nCVA5_SIM_DIR := $(abspath ./obj_dir)\nSIM_STATS_SV := $(CVA5_DIR)/test_benches/verilator/sim_stats.sv\n\ninclude $(CVA5_DIR)/tools/cva5.mak\nCVA5_SIM_EXTRA_SRCS += $(SIM_STATS_SV)\n\n.PHONY: all\nall: $(CVA5_SIM)\n\n.PHONY: clean\nclean:\n\trm -rf $(CVA5_SIM_DIR)\nEOF
+  724  ls -l ../third_party/cva5/test_benches/verilator/sim_stats.sv\n
+  725  make clean
+  726  make -j
+  727  make -n | head -n 60
+  728  cd sim
+  729  make clean
+  730  make -j
+  731  make -j all\n
+  732  make clean
+  733  make -j all
+  734  cat >> .gitignore <<'EOF'\n\n# Verilator build artifacts\nsim/obj_dir/\n*.vcd\n*.fst\n*.o\n*.d\ncva5-sim\n\n# macOS noise\n.DS_Store\nEOF\n
+  735  git status\n
+  736  git add sim/Makefile .gitignore\ngit commit -m "Add Verilator build flow for CVa5 simulation"\ngit push origin main\n
+  737  cd ..
+  738  git status
+  739  git add sim/Makefile .gitignore
+  740  git add sim/ .gitignore
+  741  git add .gitignore sim/Makefile\n
+  742  git add sim/Makefile sim/.gitignore\ngit commit -m "Add sim Makefile and gitignore"\ngit push origin main\n
+  743  cd third_party/cva5\n
+  744  git remote -v\n
+  745  git remote set-url origin https://github.com/JerryYun2004/cva5.git\n
+  746  git remote -v\n
+  747  git push origin main\n
+  748  git push origin master\n
+  749  git status
+  750  git add cva5.mak
+  751  git add tools/cva5.mak
+  752  git commit -m "updated build lint rules"
+  753  git push origin master
+  754  cd ../..
+  755  git status
+  756  git add third_party/cva5 .gitmodules
+  757  git commit -m "Switch CVa5 submodule to fork and push local modifications"
+  758  git push origin main
+  759  /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\n\n
+  760  brew --version\n\n
+  761  verilator --version\n\n
+  762  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\n
+  763  brew --version\n\n
+  764  brew install verilator\n\n
+  765  verilator --version\n\n
+  766  clang --version\nmake --version\npython3 --version\n\n
+  767  cd ~/IGEN330-Project
+  768  ~/Library/Arduino15
+  769  ls
+  770  cd Library
+  771  ls
+  772  cd Arduino15
+  773  ls
+  774  ls
+  775  rm -rf staging tmp
+  776  ls packages
+  777  rm -rf packages/Heltec-esp32
+  778  ls
+  779  rm -rf staging tmp
+  780  ls packages
+  781  rm -rf packages/Heltec-esp32
+  782  ls
+  783  ls packages
+  784  rm -rf staging tmp
+  785  ls
+  786  rm -rf packages/Heltec-esp32
+  787  ls
+  788  git status
+  789  git add .
+  790  git commit -m "working sender code"
+  791  git push
+  792  git status
+  793  git add .
+  794  git add .
+  795  git commit -m "working receiver code"
+  796  git push
+  797  git clone https://github.com/JerryYun2004/CVe2-RVV-Lite-A1-Extension.git\ncd CVe2-RVV-Lite-A1-Extension
+  798  cd ..
+  799  cd ..
+  800  ls
+  801  cd CVe2-RVV-Lite-A1-Extension
+  802  git clone https://github.com/JerryYun2004/CVe2-RVV-Lite-A1-Extension.git\ncd CVe2-RVV-Lite-A1-Extension
+  803  ls
+  804  git status
+  805  ls
+  806  cd CVe2-RVV-Lite-A1-Extension
+  807  cp -r ~/Desktop/CPEN499/CVe2Mod/* .
+  808  git add .
+  809  git commit -m "Initial RVV-Lite A1 CVE2 extension"
+  810  git push origin main
+  811  make clean
+  812  cd sim
+  813  make clean
+  814  make -j
+  815  ls
+  816  ls -lh obj_dir/cva5-sim
+  817  ./obj_dir/cva5-sim
+  818  ./obj_dir/cva5-sim --help
+  819  ./obj_dir/cva5-sim -h
+  820  grep -R --line-number "Missing log file name" obj_dir | head -n 20
+  821  strings obj_dir/cva5-sim | grep -i -E "usage|missing|signature|log|elf|hex|mem|program|image|boot|tohost" | head -n 120\n
+  822  cd ..
+  823  third_party/cva5/test_benches/verilator/cva5_sim.cc\n
+  824  cd RISC-V-RVV-Lite/third_party/cva5\ngrep -R --line-number "\$readmemh|\$readmemb" test_benches/verilator | head -n 50\n
+  825  cd ..
+  826  cd RISC-V-RVV-Lite/third_party/cva5\ngrep -R --line-number "\$readmemh|\$readmemb" test_benches/verilator | head -n 50\n
+  827  grep -R --line-number "\$readmemh|\$readmemb" test_benches/verilator | head -n 50
+  828  grep -R --line-number -E "readmem|\\$readmem|elf|ELF|objcopy|hex|vmem|memh|signature|COMPLIANCE_SIG_PHASE_NOP" test_benches/verilator | head -n 80\n
+  829  cd RISC-V-RVV-Lite/third_party/cva5\ngrep -R --line-number "has_terminated" test_benches/verilator/CVA5Tracer.* | head -n 50\ngrep -R --line-number -E "EBREAK|ebreak|00100073|ECALL|ecall|tohost|mailbox|terminate" test_benches/verilator/CVA5Tracer.* | head -n 80\n
+  830  cd ..
+  831  cd ..
+  832  cd ..
+  833  cd RISC-V-RVV-Lite/third_party/cva5\ngrep -R --line-number "has_terminated" test_benches/verilator/CVA5Tracer.* | head -n 50\ngrep -R --line-number -E "EBREAK|ebreak|00100073|ECALL|ecall|tohost|mailbox|terminate" test_benches/verilator/CVA5Tracer.* | head -n 80\n
+  834  cd ../..
+  835  cd sim
+  836  cat > prog.hex << 'EOF'\n00B00013\n00C00013\n0000006F\nEOF\n\n./obj_dir/cva5-sim \\n    run.log \\n    signature.out \\n    prog.hex \\n    trace.log \\n    pc.log \\n    run.csv\n
+  837  echo $?\nls -lh run.log signature.out\ntail -n 50 run.log\n
+  838  python3 - << 'PY'\nwith open("prog.hex","rb") as f:\n    data = f.read()\nprint("raw bytes:", data)\nprint("lines repr:")\nfor i, line in enumerate(data.splitlines(True), 1):\n    print(i, repr(line))\nPY\n
+  839  make clean\nmake -j\n\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\necho $?\n
+  840  make clean\nmake -j\n\ncat > prog.hex << 'EOF'\n00B00013\n00C00013\n0000006F\nEOF\n\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\necho $?\nls -lh run.log signature.out\n
+  841  cat > prog.hex << 'EOF'\n00B00013   # COMPLIANCE_SIG_PHASE_NOP\n00A00013   # SUCCESS_TERMINATION_NOP  <-- THIS WAS WRONG BEFORE\n0000006F   # jal x0, 0 (never reached)\nEOF\n
+  842  make clean\nmake -j\n\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\necho $?
+  843  cat -n prog.hex\n
+  844  make clean\nmake -j\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\nhead -n 40 pc.log
+  845  make clean\nmake -j 2>&1 | tee build.log\ngrep -n "PC_TRACE_ON" build.log | head\n
+  846  rm -f pc.log\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\nls -lh pc.log\n
+  847  make clean\nmake -j 2>&1 | tee build.log\ngrep -n "PC_TRACE_ON" build.log | head
+  848  ./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\nwc -l pc.log\nhead -n 20 pc.log\n
+  849  make clean\nmake -j\n\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\nwc -l pc.log\nhead -n 20 pc.log
+  850  cd ..
+  851  cd ..
+  852  cd RISC-V-RVV-Lite/third_party/cva5/test_benches/verilator\n\n# Search for reset vector / boot PC / initial PC\ngrep -R --line-number -E "RESET|reset.*pc|boot|BOOT|RESET_VECTOR|START_ADDR|RESET_PC|pc_init|PC_INIT" cva5_sim.sv\n
+  853  grep -R --line-number -E "RESET|reset.*pc|boot|BOOT|RESET_VECTOR|START_ADDR|RESET_PC|pc_init|PC_INIT" cva5_sim.sv
+  854  cd ../../core\ngrep -R --line-number -E "RESET_VECTOR|RESET_PC|BOOT_ADDR|pc_init|RESET_ADDR" .
+  855  cd ..
+  856  grep -nE "ILOCAL|DLOCAL|LOCAL_MEM|ilocal|dlocal|RESET|boot|pc" test_benches/verilator/cva5_sim.sv
+  857  grep -R --line-number -i -E "ilocal|dlocal|local_mem|reset|boot|pc_init|start_addr|starting_addr" core | head -n 120
+  858  grep -R --line-number -E "80000000|40000000|01000000|00000000" test_benches/verilator/cva5_sim.sv core | head -n 120\n
+  859  cd RISC-V-RVV-Lite/third_party/cva5/test_benches/verilator\ngrep -nE "cva5_config_t|CONFIG\s*=|RESET_VEC|INCLUDE_ILOCAL_MEM|ILOCAL_MEM_ADDR|INCLUDE_IBUS|INCLUDE_ICACHE" cva5_sim.sv | head -n 120\n
+  860  cd ../..
+  861  cd ..
+  862  cd RISC-V-RVV-Lite/third_party/cva5/test_benches/verilator\ngrep -nE "cva5_config_t|CONFIG\s*=|RESET_VEC|INCLUDE_ILOCAL_MEM|ILOCAL_MEM_ADDR|INCLUDE_IBUS|INCLUDE_ICACHE" cva5_sim.sv | head -n 120\n
+  863  sed -n '230,360p' RISC-V-RVV-Lite/third_party/cva5/core/types_and_interfaces/cva5_config.sv\n
+  864  sed -n '230,360p' ../../core/types_and_interfaces/cva5_config.sv\n
+  865  grep -R --line-number -E "EXAMPLE_CONFIG|example_config" .. | head -n 80\n
+  866  grep -R --line-number -E "EXAMPLE_CONFIG|example_config" .. | head -n 80\n
+  867  cd ../..
+  868  cd ../..
+  869  cd ..
+  870  cd RISC-V-RVV-Lite/sim\nmake clean\nmake -j\n\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\necho $?\nwc -l pc.log\nhead -n 20 pc.log\n
+  871  make clean\nmake -j\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\n
+  872  make clean\nmake -j\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\n
+  873  make clean\nmake -j\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\n
+  874  make clean\nmake -j\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\n
+  875  make clean\nmake -j\n./obj_dir/cva5-sim ...\n
+  876  make clean\nmake -j\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\n
+  877  make clean\nmake -j\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\n
+  878  head -n 20 pc.log\n
+  879  git status\n
+  880  git checkout -b verilator-localmem-fix\n
+  881  git add .\ngit commit -m "Verilator bring-up: local mem config + sim fixes"\n
+  882  git reset\n
+  883  git status
+  884  git status\ngit log --oneline -5\ngit branch --show-current\ngit remote -v\ngit rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || echo "no upstream"\n
+  885  cd /Users/jerryyun/RISC-V-RVV-Lite\n
+  886  git reset --soft HEAD~1\n
+  887  git reset\n
+  888  rm -rf sim/obj_dir\nrm -f sim/build.log sim/run.log sim/pc.log sim/trace.log sim/signature.out\n
+  889  cd sim\nmake clean\nmake -j\n
+  890  cd ..\ngit add .gitignore\ngit add third_party/cva5/core/types_and_interfaces/cva5_config.sv\ngit add third_party/cva5/test_benches/verilator/cva5_sim.sv\n# add any other real source files you edited:\ngit status\ngit commit -m "Verilator bring-up: local mem config and sim fixes"\n
+  891  # go to repo root (looks like you already did cd .. from sim/)\npwd\n\n# 1) stop tracking any generated sim outputs if needed\nrm -rf sim/obj_dir\n\n# 2) add the RIGHT gitignore file (it's sim/.gitignore)\ngit add sim/.gitignore\ngit add sim/Makefile\n\n# 3) if these are still untracked and you DON'T want them committed:\nrm -f sim/prog.hex sim/run.csv sim/trace.log.hier\n\n# 4) commit top-level repo changes\ngit status\ngit commit -m "Sim: ignore verilator outputs; Makefile tweaks"\n
+  892  rm -rf sim/obj_dir
+  893  git add sim/.gitignore\ngit add sim/Makefile
+  894  rm -f sim/prog.hex sim/run.csv sim/trace.log.hier
+  895  git status\ngit commit -m "Sim: ignore verilator outputs; Makefile tweaks"
+  896  cd third_party/cva5
+  897  git checkout -b verilator-localmem-fix\n\ngit status\ngit add core/types_and_interfaces/cva5_config.sv\ngit add test_benches/verilator/cva5_sim.sv\ngit commit -m "Verilator bring-up: localmem sim config"
+  898  cd ../..\n\ngit status\n
+  899  git add third_party/cva5\ngit commit -m "Update cva5 submodule pointer"
+  900  git push -u origin verilator-localmem-fix\n
+  901  git log --oneline --decorate -5\ngit show --stat --name-only HEAD | head -n 60\n
+  902  make clean\nmake -j\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\n
+  903  cd sim
+  904  make clean\nmake -j\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\n
+  905  cd ..
+  906  git add sim/prog.hex
+  907  git status
+  908  git add third_party/cva5
+  909  git status
+  910  git add third_party/cva5
+  911  git add third_party/cva5/test_benches/verilator/AXIMem.cc
+  912  git commit -m "added hex code for helloworld baremetal"
+  913  git push
+  914  cd third_party/cva5\ngit status
+  915  git add .\ngit commit -m "Verilator bring-up fixes"\n
+  916  cd third_party/cva5\ngit checkout -b verilator-localmem-fix\n
+  917  cd ../..\ngit add third_party/cva5\ngit commit -m "Use CVA5 submodule branch verilator-localmem-fix"\n
+  918  git checkout -b verilator-localmem-fix\n
+  919  git branch\n
+  920  git submodule update --checkout\n
+  921  cd third_party/cva5\ngit push -u origin verilator-localmem-fix\n
+  922  cd ../..\ngit push -u origin verilator-localmem-fix\n
+  923  git checkout main\ngit submodule update --checkout\n
+  924  cd sim\nmake clean\nmake -j\n
+  925  cd sim\n./obj_dir/cva5-sim\n
+  926  ./obj_dir/cva5-sim
+  927  cd sim\n./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv\n
+  928  ./obj_dir/cva5-sim run.log signature.out prog.hex trace.log pc.log run.csv
+  929  cd ..
+  930  git checkout -b switch_to_cve2\ngit status
+  931  git submodule status
+  932  git rm -r third_party/cva5
+  933  git config -f .gitmodules --remove-section submodule.third_party/cva5 || true
+  934  git config --remove-section submodule.third_party/cva5 || true
+  935  rm -rf .git/modules/third_party/cva5 || true
+  936  git add .gitmodules || true
+  937  git commit -m "Remove CVA5 submodule"
+  938  git submodule add https://github.com/openhwgroup/cve2.git third_party/cve2
+  939  git submodule update --init --recursive
+  940  git commit -m "Add CVE2 submodule"
+  941  cp -r third_party/cve2 third_party/cve2_rvv
+  942  patch -p1 -d third_party/cve2_rvv < cve2_rvv_lite_patch.diff
+  943  patch -p1 -d third_party/cve2_rvv < cve2_rvv_lite_patch.diff
+  944  patch -p1 -d third_party/cve2_rvv < cve2_rvv_lite_patch.diff
+  945  git submodule https://github.com/JerryYun2004/CVe2-RVV-Lite-A1-Extension.git third_party/cve2-rvv
+  946  git submodule add https://github.com/JerryYun2004/CVe2-RVV-Lite-A1-Extension.git third_party/cve2_rvv_lite\ngit submodule update --init --recursive
+  947  cd sim
+  948  make clean
+  949  make
+  950  make clean
+  951  make
+  952  make clean
+  953  make
+  954  cd ..
+  955  cd third_party/cve2
+  956  make build-riscv-compliance
+  957  make build-riscv-compliance
+  958  python3 -m venv venv_cve2\nsource venv_cve2/bin/activate\npython3 -m pip install --upgrade pip\npython3 -m pip install --upgrade -r python-requirements.txt
+  959  make build-riscv-compliance
+  960  cd third_party/cve2\nfusesoc --cores-root=. run --target=sim --setup --build \\n  --tool=verilator \\n  --verilator_options="-Wno-UNOPTFLAT -Wno-fatal" \\n  openhwgroup:cve2:cve2_riscv_compliance \\n  $(./util/cve2_config.py small fusesoc_opts)
+  961  cd /Users/jerryyun/RISC-V-RVV-Lite/third_party/cve2
+  962  ls build/openhwgroup_cve2_cve2_riscv_compliance_0.1/sim-verilator/*.vc
+  963  make build-riscv-compliance
+  964  export VERILATOR_FLAGS="-Wno-UNOPTFLAT -Wno-fatal"
+  965  make build-riscv-compliance
+  966  make build-riscv-compliance
+  967  make build-riscv-compliance
+  968  cd ~
+  969  brew install libelf
+  970  brew --prefix libelf
+  971  export CPPFLAGS="-I$(brew --prefix libelf)/include"\nexport LDFLAGS="-L$(brew --prefix libelf)/lib"
+  972  cd RISC-V-RVV-Lite/third_party/cve2
+  973  make clean
+  974  make build-riscv-compliance
+  975  ls -l /opt/homebrew/opt/libelf/include/libelf.h
+  976  cd ~
+  977  brew install elfutils
+  978  cd /Users/jerryyun/RISC-V-RVV-Lite/third_party/cve2\nfusesoc --cores-root=. run --target=sim --setup --build --tool=verilator \\n  openhwgroup:cve2:cve2_simple_system \\n  $(./util/cve2_config.py small fusesoc_opts)
+  979  fusesoc --cores-root=. list | grep -i cve2
+  980  fusesoc --cores-root=. list-cores | grep -i cve2
+  981  fusesoc --cores-root=. run --target=lint --tool=verilator --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+  982  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+  983  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+  984  ls -lh third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/*.vc
+  985  make clean
+  986  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+  987  ls -lh third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/*.vc
+  988  ls -lh third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/*.vc
+  989  cd ~
+  990  ls -lh third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/*.vc
+  991  ls -lh third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/
+  992  cd RISC-V-RVV-Lite
+  993  ls -lh third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/*.vc
+  994  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+  995  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=sim --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+  996  cd .. ..
+  997  cd .. / ..
+  998  cd ..
+  999  cd ..
+ 1000  cd ..
+ 1001  ls util/cve2_config.py
+ 1002  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=sim --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1003  fusesoc --cores-root=. core-info openhwgroup:cve2:cve2_top:0.1
+ 1004  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1005  make clean
+ 1006  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1007  cd ..
+ 1008  cd cve2_rvv_lite
+ 1009  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1010  cd ..
+ 1011  cd cve2
+ 1012  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1013  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1014  make clean
+ 1015  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1016  fusesoc --cores-root=. run --target=lint --tool=verilator --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1017  make clean
+ 1018  fusesoc --cores-root=. run --target=lint --tool=verilator --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1019  cd build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1020  cp openhwgroup_cve2_cve2_top_0.1.vc cve2_top_sim.vc
+ 1021  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1022  grep lint openhwgroup_cve2_cve2_top_0.1.vc
+ 1023  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1024  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1025  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1026  cd ..
+ 1027  cd ..
+ 1028  cd ..
+ 1029  cd ..
+ 1030  cd ..
+ 1031  cd third_party/cve2_rvv_lite
+ 1032  make clean
+ 1033  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1034  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1035  cd build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1036  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1037  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1038  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1039  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1040  cd ..
+ 1041  cd ..
+ 1042  cd ..
+ 1043  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1044  cd build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1045  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1046  cd ../..
+ 1047  cd ..
+ 1048  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1049  cd build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1050  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1051  cd ../../../..
+ 1052  cd cve2_rvv_lite
+ 1053  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1054  cd build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1055  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1056  grep -n "cve2_vec_unit.sv" openhwgroup_cve2_cve2_top_0.1.vc
+ 1057  cd ../../..
+ 1058  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1059  cd build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1060  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1061  cd ../../..
+ 1062  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run --target=lint --tool=verilator --setup \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1063  cd build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1064  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1065  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1066  grep -nE "^\s*module\s+cve2_vec_unit\b" ../src/openhwgroup_cve2_cve2_core_0.1/rtl/cve2_vec_unit.sv
+ 1067  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1068  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1069  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1070  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1071  ls ../../third_party/cve2_rvv_lite/rtl/cve2_vec_regfile.sv ../../third_party/cve2_rvv_lite/rtl/cve2_vec_unit.sv
+ 1072  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1073  ls ../../rtl/cve2_vec_regfile.sv ../../rtl/cve2_vec_unit.sv
+ 1074  cd ../..
+ 1075  cd ..
+ 1076  cd rtl
+ 1077  cd ..
+ 1078  cd build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1079  ls ../../../rtl/cve2_vec_regfile.sv ../../../rtl/cve2_vec_unit.sv
+ 1080  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1081  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1082  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1083  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1084  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1085  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1086  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1087  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1088  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1089  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1090  ./Vcve2_top
+ 1091  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1092  ./Vcve2_top
+ 1093  cd ../../..
+ 1094  cd ..
+ 1095  cd ..
+ 1096  cd sw/build
+ 1097  riscv32-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32imc -mabi=ilp32 \\n  -T ../link.ld \\n  ../rgba2luma_min.c ../start.S \\n  -o prog.elf
+ 1098  which riscv32-unknown-elf-gcc
+ 1099  brew install riscv-tools
+ 1100  brew tap riscv-software-src/riscv\nbrew install riscv-gnu-toolchain
+ 1101  riscv64-unknown-elf-gcc --version
+ 1102  -march=rv32imc -mabi=ilp32
+ 1103  riscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32imc -mabi=ilp32 \\n  -T ../link.ld \\n  ../rgba2luma_min.c ../start.S \\n  -o prog.elf
+ 1104  riscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32imc -mabi=ilp32 \\n  -T ../link.ld \\n  rgba2luma_min.c ../start.S \\n  -o prog.elf
+ 1105  riscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32imc -mabi=ilp32 \\n  -T ../link.ld \\n  rgba2luma_min.c start.S \\n  -o prog.elf
+ 1106  riscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32imc -mabi=ilp32 \\n  -T ../link.ld \\n  ../rgba2luma_min.c ../start.S \\n  -o prog.elf
+ 1107  cd sw/build\n\nriscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32imc -mabi=ilp32 \\n  -T ../link.ld \\n  ../start.S ../uart.c ../rgba2luma_min.c \\n  -o prog.elf
+ 1108  cd ../..
+ 1109  cd sw/build\n\nriscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32imc -mabi=ilp32 \\n  -T ../link.ld \\n  ../start.S ../uart.c ../rgba2luma_min.c \\n  -o prog.elf
+ 1110  riscv64-unknown-elf-objcopy -O verilog prog.elf prog.hex
+ 1111  cd ..
+ 1112  cd ..
+ 1113  cd sim
+ 1114  cd ../sw/build
+ 1115  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  run.log signature.out prog.hex trace.log pc.log run.csv
+ 1116  echo "exit_code=$?"\nls -lh run.log signature.out trace.log pc.log run.csv 2>/dev/null || true\nwc -l run.log trace.log pc.log run.csv 2>/dev/null || true
+ 1117  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1118  riscv64-unknown-elf-objcopy -O verilog prog.elf prog.hex
+ 1119  cd sw/build\n\nriscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32imc -mabi=ilp32 \\n  -T ../link.ld \\n  ../start.S ../uart.c ../rgba2luma_min.c \\n  -o prog.elf
+ 1120  riscv64-unknown-elf-objcopy -O verilog prog.elf prog.hex
+ 1121  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1122  cd ../..
+ 1123  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1124  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1125  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1126  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1127  Vcve2_top prog.hex
+ 1128  ./Vcve2_top prog.hex
+ 1129  cd ../../../..
+ 1130  cd ..
+ 1131  cd sw/b
+ 1132  cd sw/build
+ 1133  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1134  (venv_cve2) jerryyun@Jerrys-MacBook-Pro-484 build % ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex\n[TB] argc=2\n[TB] argv[0]=../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top\n[TB] argv[1]=prog.hex\n[TB] Loaded prog.hex into RAM (words=262144)\n[TB] Reset released, starting simulation loop...\n[TB] cyc=0 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=20000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=40000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=60000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=80000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=100000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=120000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=140000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=160000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=180000 pc=0x00000000 instr_req=0 data_req=0\n[TB] Finished (timeout or finish)
+ 1135  (venv_cve2) jerryyun@Jerrys-MacBook-Pro-484 build % ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex\n[TB] argc=2\n[TB] argv[0]=../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top\n[TB] argv[1]=prog.hex\n[TB] Loaded prog.hex into RAM (words=262144)\n[TB] Reset released, starting simulation loop...\n[TB] cyc=0 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=20000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=40000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=60000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=80000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=100000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=120000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=140000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=160000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=180000 pc=0x00000000 instr_req=0 data_req=0\n[TB] Finished (timeout or finis
+ 1136  (venv_cve2) jerryyun@Jerrys-MacBook-Pro-484 build % ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex\n[TB] argc=2\n[TB] argv[0]=../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top\n[TB] argv[1]=prog.hex\n[TB] Loaded prog.hex into RAM (words=262144)\n[TB] Reset released, starting simulation loop...\n[TB] cyc=0 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=20000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=40000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=60000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=80000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=100000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=120000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=140000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=160000 pc=0x00000000 instr_req=0 data_req=0\n[TB] cyc=180000 pc=0x00000000 instr_req=0 data_req=0\n[TB] Finished (timeout or finish)
+ 1137  riscv64-unknown-elf-readelf -h prog.elf | grep 'Entry point'
+ 1138  cd ../..
+ 1139  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1140  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1141  cd ../../../..
+ 1142  cd ..
+ 1143  cd sw/build
+ 1144  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1145  cd ..
+ 1146  cd build
+ 1147  riscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32im -mabi=ilp32 \\n  -T ../link.ld \\n  ../start.S ../uart.c ../rgba2luma_min.c \\n  -o prog.elf
+ 1148  riscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32im -mabi=ilp32 \\n  -T ../link.ld \\n  ../start.S ../uart.c ../rgba2luma_min.c \\n  -o prog.elf
+ 1149  riscv64-unknown-elf-objcopy -O verilog prog.elf prog.hex
+ 1150  cd ../..
+ 1151  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1152  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1153  cd ../../../..
+ 1154  cd ..
+ 1155  cd sw/build
+ 1156  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1157  riscv64-unknown-elf-gcc -O3 -ffreestanding -nostdlib \\n  -march=rv32im -mabi=ilp32 -Wa,-mno-rvc \\n  -T ../link.ld \\n  ../start.S ../uart.c ../rgba2luma_min.c \\n  -o prog.elf
+ 1158  riscv64-unknown-elf-objdump -d prog.elf | head -n 40
+ 1159  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1160  riscv64-unknown-elf-readelf -h prog.elf | grep 'Entry point'
+ 1161  cd ../..
+ 1162  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1163  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1164  cd ../../../../..
+ 1165  cd sw/build
+ 1166  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1167  cd ../..
+ 1168  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1169  # 1) Rebuild the simulator (after editing sim/min_tb.cpp)\ncd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\n\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp\n\n# 2) Run from the directory where prog.hex lives\ncd ../../../../../../sw/build\n\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1170  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp\n
+ 1171  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1172  cd ../../../../..
+ 1173  cd sw/b
+ 1174  cd sw/build
+ 1175  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1176  cd ../..
+ 1177  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1178  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1179  cd ../../../../..
+ 1180  cd sw/build
+ 1181  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1182  cd ../..
+ 1183  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1184  cd ../../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 20000
+ 1185  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 20000
+ 1186  cd ../..
+ 1187  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1188  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 20
+ 1189  cd ../..
+ 1190  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1191  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 20
+ 1192  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 200000
+ 1193  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1194  cd ../..
+ 1195  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1196  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1197  cd ../..
+ 1198  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1199  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1200  cd ../..
+ 1201  # from third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1202  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1203  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1204  riscv64-unknown-elf-objdump -d prog.elf | head -n 80
+ 1205  cd ../..
+ 1206  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1207  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1208  cd ../..
+ 1209  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1210  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1211  cd ../..
+ 1212  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1213  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1214  cd ../..
+ 1215  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1216  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1217  cd ../..
+ 1218  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1219  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1220  cd ../..
+ 1221  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1222  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50
+ 1223  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1224  cd ../..
+ 1225  cd third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1226  cd ../../../../../sw/build\n../../third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1227  cd ../../../../../sw/build\n../../third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 20000
+ 1228  cd ../../../../../sw/build\n../../third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50000
+ 1229  riscv32-unknown-elf-objdump -d prog.elf | less
+ 1230  riscv64-unknown-elf-objdump -d prog.elf | less
+ 1231  riscv64-unknown-elf-objdump -d prog.elf > disasm.txt
+ 1232  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1233  cd ../..
+ 1234  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1235  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1236  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50000
+ 1237  riscv64-unknown-elf-objdump -d prog.elf > disasm.txt
+ 1238  cd ../..
+ 1239  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1240  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50000
+ 1241  cd ../..
+ 1242  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1243  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 50000
+ 1244  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 1000
+ 1245  cd ../../../../../sw/build\n./../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 1000
+ 1246  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 2000 --max-cycles 300000
+ 1247  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 2000 --max-cycles 500000
+ 1248  cd ../..
+ 1249  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1250  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 20000 --max-cycles 5000000
+ 1251  cd ../..
+ 1252  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1253  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 200000 --max-cycles 50000000
+ 1254  rm -f *.o prog.elf prog.hex
+ 1255  rm -f prog.elf prog.hex
+ 1256  riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -c ../start.S -o start.o\n\nriscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -c ../rgba2luma_min.c -o rgba2luma_min.o\n\nriscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -c ../uart.c -o uart.o
+ 1257  riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -nostdlib \\n  -T ../link.ld \\n  start.o rgba2luma_min.o uart.o \\n  -o prog.elf
+ 1258  riscv64-unknown-elf-objcopy -O verilog prog.elf prog.hex
+ 1259  riscv64-unknown-elf-size prog.elf
+ 1260  riscv64-unknown-elf-objdump -d prog.elf | less
+ 1261  riscv64-unknown-elf-objdump -d prog.elf > disasm.txt
+ 1262  cd ../..
+ 1263  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1264  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 200000 --max-cycles 50000000
+ 1265  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 2000 --max-cycles 500000
+ 1266  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 200000 --max-cycles 50000000
+ 1267  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1268  ./obj_dir/Vcve2_top prog.hex --max-cycles 20000 --trace-if --trace-d > run.txt
+ 1269  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1270  cd ../..
+ 1271  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1272  cd ../../../../..
+ 1273  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1274  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1275  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1276  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1277  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 200000 --max-cycles 50000000
+ 1278  cd ../..
+ 1279  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1280  cd ../../../../..
+ 1281  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1282  cd ../../../../..
+ 1283  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1284  cd ../../../../..
+ 1285  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1286  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1287  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1288  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1289  cd ../..
+ 1290  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1291  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1292  cd ../..
+ 1293  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1294  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1295  riscv64-unknown-elf-nm -n prog.elf | grep -E "_stack_top|_start"
+ 1296  riscv64-unknown-elf-objdump -d prog.elf | sed -n '1,40p'
+ 1297  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex \\n  --print-every 1 --max-cycles 80 --trace-d --trace-if
+ 1298  cd ../..
+ 1299  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1300  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1301  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1302  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 10 --max-cycles 5000
+ 1303  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 100 --max-cycles 50000
+ 1304  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1305  riscv64-unknown-elf-objdump -d prog.elf > disasm.txt
+ 1306  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1307  cd third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  -Wall -Wno-fatal -Wno-UNOPTFLAT \\n  --cc --exe --build \\n  --top-module cve2_top \\n  ../../../../../../sim/min_tb.cpp
+ 1308  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 1 --max-cycles 500
+ 1309  cd ../../../../../sw/build\n../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --print-every 100 --max-cycles 50000
+ 1310  rm -f prog.elf prog.hex *.o
+ 1311  riscv64-unknown-elf-gcc \\n  -march=rv32im \\n  -mabi=ilp32 \\n  -O2 \\n  -nostdlib \\n  -c ../start.S -o start.o
+ 1312  riscv64-unknown-elf-gcc \\n  -march=rv32im \\n  -mabi=ilp32 \\n  -O2 \\n  -ffreestanding \\n  -nostdlib \\n  -fno-builtin \\n  -c ../rgba2luma_min.c -o main.o
+ 1313  rm -f prog.elf prog.hex *.o
+ 1314  riscv64-unknown-elf-gcc \\n  -march=rv32im \\n  -mabi=ilp32 \\n  -O2 \\n  -nostdlib \\n  -c ../start.S -o start.o
+ 1315  riscv64-unknown-elf-gcc \\n  -march=rv32im \\n  -mabi=ilp32 \\n  -O2 \\n  -ffreestanding \\n  -nostdlib \\n  -fno-builtin \\n  -c ../rgba2luma_min.c -o main.o
+ 1316  riscv64-unknown-elf-gcc \\n  -march=rv32im \\n  -mabi=ilp32 \\n  -nostdlib \\n  -T ../link.ld \\n  start.o main.o \\n  -o prog.elf
+ 1317  rm -f *.o prog.elf prog.hex
+ 1318  riscv64-unknown-elf-gcc \\n  -march=rv32im \\n  -mabi=ilp32 \\n  -O2 \\n  -nostdlib \\n  -c ../start.S -o start.o
+ 1319  riscv64-unknown-elf-gcc \\n  -march=rv32im \\n  -mabi=ilp32 \\n  -O2 \\n  -ffreestanding \\n  -nostdlib \\n  -fno-builtin \\n  -c ../rgba2luma_min.c -o main.o
+ 1320  riscv64-unknown-elf-gcc \\n  -march=rv32im \\n  -mabi=ilp32 \\n  -O2 \\n  -ffreestanding \\n  -nostdlib \\n  -c ../uart.c -o uart.o
+ 1321  riscv64-unknown-elf-gcc \\n  -march=rv32im \\n  -mabi=ilp32 \\n  -nostdlib \\n  -T ../link.ld \\n  start.o main.o uart.o \\n  -o prog.elf
+ 1322  riscv64-unknown-elf-nm prog.elf | grep putchar
+ 1323  riscv64-unknown-elf-objdump -d prog.elf | grep " c\."
+ 1324  riscv64-unknown-elf-objcopy -O verilog prog.elf prog.hex
+ 1325  Vcve2_top prog.hex --max-cycles 500 --trace-if --trace-d
+ 1326  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex --max-cycles 500 --trace-if --trace-d
+ 1327  riscv64-unknown-elf-objdump -d -h -S prog.elf > disasm.txt
+ 1328  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 200000 --trace-d
+ 1329  ... prog.hex --max-cycles 200000 --trace-if --trace-d
+ 1330  prog.hex --max-cycles 200000 --trace-if --trace-d
+ 1331  \ prog.hex --max-cycles 200000 --trace-if --trace-d
+ 1332  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 200000 --trace-if --trace-d
+ 1333  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 200000 --trace-d
+ 1334  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 20000000 --trace-d
+ 1335  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 2000000 --trace-d
+ 1336  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 200000 --trace-d
+ 1337  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 20000 --trace-d
+ 1338  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 100000 --trace-d
+ 1339  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 1000000000 --trace-d
+ 1340  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\nprog.hex --max-cycles 200000 --trace-if --trace-d > sim_output.txt
+ 1341  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\nprog.hex --max-cycles 20000000 --trace-if --trace-d > sim_output.txt
+ 1342  grep "D \] accept addr=.*(RD)" sim_out.txt | head\ngrep "D \] accept addr=.*(RD)" sim_out.txt | tail
+ 1343  grep "D \] accept addr=.*(RD)" sim_out.txt | head\ngrep "D \] accept addr=.*(RD)" sim_output.txt | tail
+ 1344  grep "D \] accept addr=.*(RD)" sim_output.txt | head\ngrep "D \] accept addr=.*(RD)" sim_output.txt | tail
+ 1345  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\nprog.hex --max-cycles 20000 --trace-if --trace-d > sim_output.txt
+ 1346  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\nprog.hex --max-cycles 2000 --trace-if --trace-d > sim_output.txt
+ 1347  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 200000 --trace-if --trace-d 2>&1 | tee sim_all.txt
+ 1348  grep '^\[IF\]' sim_all.txt > sim_if.txt\n
+ 1349  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 20000 --trace-if --trace-d 2>&1 | tee sim_all.txt
+ 1350  grep '^\[IF\]' sim_all.txt > sim_if.txt\n
+ 1351  grep '^\[D \]' sim_all.txt > sim_d.txt
+ 1352  rm -f *.o prog.elf prog.hex disasm.txt
+ 1353  riscv64-unknown-elf-gcc \\n-march=rv32im \\n-mabi=ilp32 \\n-nostdlib \\n-c ../start.S -o start.o
+ 1354  riscv64-unknown-elf-gcc \\n-march=rv32im \\n-mabi=ilp32 \\n-nostdlib \\n-ffreestanding \\n-fno-builtin \\n-c ../rgba2luma_min.c -o main.o
+ 1355  riscv64-unknown-elf-gcc \\n-march=rv32im \\n-mabi=ilp32 \\n-nostdlib \\n-ffreestanding \\n-c ../uart.c -o uart.o
+ 1356  riscv64-unknown-elf-gcc \\n-march=rv32im \\n-mabi=ilp32 \\n-nostdlib \\n-T ../link.ld \\nstart.o main.o uart.o \\n-o prog.elf
+ 1357  riscv64-unknown-elf-objcopy -O verilog prog.elf prog.hex
+ 1358  riscv64-unknown-elf-objdump -d prog.elf > disasm.txt
+ 1359  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\nprog.hex \\n--max-cycles 200000 \\n--trace-if \\n--trace-d | tee sim_all.txt
+ 1360  riscv64-unknown-elf-nm -n prog.elf | grep out_luma
+ 1361  ../../third_party/cve2/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\nprog.hex --max-cycles 10000 --trace-d | tee sim_all.txt
+ 1362  riscv64-unknown-elf-nm -n prog.elf | grep out_luma
+ 1363  grep "addr=0x000004" sim_all.txt | grep "(WR)" > out_luma_writes.txt
+ 1364  grep "addr=0x000004" sim_all.txt | grep "(WR)"
+ 1365  python3 golden_rgba2luma.py
+ 1366  cd ..
+ 1367  cd golden
+ 1368  python3 golden_rgba2luma.py
+ 1369  cd ..
+ 1370  cd build
+ 1371  grep "addr=0x0000042" sim_all.txt | grep "(WR)"
+ 1372  grep "^\[D \] accept addr=0x000004" sim_all.txt | grep "(WR)" | \\ngrep -E "addr=0x0000042c|addr=0x00000430|addr=0x00000434|addr=0x00000438" \\n> out_luma_raw.txt
+ 1373  ../../third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\nprog.hex \\n--max-cycles 20000 \\n--trace-if \\n--trace-d \\n> sim_rvv.txt
+ 1374  grep DONE sim_rvv.txt
+ 1375  ../../third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top prog.hex
+ 1376  cd ~
+ 1377  cd /Users/jerryyun/RISC-V-RVV-Lite/third_party/cve2_rvv_lite
+ 1378  rm -rf build
+ 1379  fusesoc run --target=lint-verilator --setup --build openhwgroup:cve2:cve2_top
+ 1380  make clean
+ 1381  python3 -m venv venv_cve2
+ 1382  source venv_cve2/bin/activate
+ 1383  python3 -m pip install --upgrade -r python-requirements.txt
+ 1384  make lint-verilator
+ 1385  fusesoc run --target=lint-verilator --setup openhwgroup:cve2:cve2_top
+ 1386  fusesoc run --target=lint-verilator --setup openhwgroup:cve2:cve2_core
+ 1387  fusesoc run \\n  --cores-root . \\n  --target=lint-verilator \\n  --setup \\n  openhwgroup:cve2:cve2_top
+ 1388  cd /Users/jerryyun/RISC-V-RVV-Lite/third_party/cve2_rvv_lite\n\nfusesoc --cores-root . run \\n  --target=lint-verilator \\n  --setup \\n  openhwgroup:cve2:cve2_top
+ 1389  verilator --version
+ 1390  find . -maxdepth 4 -type f \( -name "*.f" -o -name "*.flist" -o -name "*.vc" \) | head -n 50
+ 1391  python3 - <<'PY'\nimport pathlib\n\nmanifest = pathlib.Path("cv32e20_manifest.flist").resolve()\nbase = manifest.parent\nout = base / "cve2_top_rvv.vc"\n\nincs = []\nsrcs = []\n\nfor ln in manifest.read_text().splitlines():\n    ln = ln.strip()\n    if not ln or ln.startswith("#"):\n        continue\n    if ln.startswith("+incdir+"):\n        p = (base / ln[len("+incdir+"):]).resolve()\n        incs.append(str(p))\n    else:\n        p = (base / ln).resolve()\n        srcs.append(str(p))\n\n# de-dup while preserving order\ndef dedup(xs):\n    seen=set(); out=[]\n    for x in xs:\n        if x not in seen:\n            seen.add(x); out.append(x)\n    return out\n\nincs = dedup(incs)\nsrcs = dedup(srcs)\n\nwith out.open("w") as f:\n    f.write("// Auto-generated from cv32e20_manifest.flist\n")\n    for d in incs:\n        f.write(f"+incdir+{d}\n")\n    for s in srcs:\n        f.write(s + "\n")\n\nprint(f"Wrote {out}")\nprint(f"  incdirs: {len(incs)}")\nprint(f"  sources: {len(srcs)}")\nPY
+ 1392  rm -rf obj_dir_rvv\nmkdir -p obj_dir_rvv\n\nverilator -Wall -Wno-fatal \\n  -cc -f third_party/cve2_rvv_lite/cve2_top_rvv.vc \\n  --top-module cve2_top \\n  --exe sim/min_tb.cpp \\n  --Mdir obj_dir_rvv \\n  -CFLAGS "-O2 -std=c++17"\n\nmake -C obj_dir_rvv -f Vcve2_top.mk -j
+ 1393  fusesoc run --setup openhwgroup:cve2:cve2_top
+ 1394  fusesoc run --setup openhwgroup:cve2:cve2_core
+ 1395  fusesoc --cores-root . list-cores | head -n 50
+ 1396  grep -n "name:" *.core
+ 1397  fusesoc --cores-root . run --setup --target=lint-verilator openhwgroup:cve2:cve2_top:0.1
+ 1398  fusesoc --cores-root . list-cores | grep cve2_top
+ 1399  rm -rf build\n
+ 1400  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run \\n  --target=lint --tool=verilator \\n  --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1401  make clean || true\nmake -j 8 Vcve2_top.mk
+ 1402  VERILATOR_OPTIONS="-Wno-UNOPTFLAT -Wno-fatal" \\nfusesoc --cores-root=. run \\n  --target=lint --tool=verilator \\n  --setup --build \\n  openhwgroup:cve2:cve2_top:0.1 \\n  $(./util/cve2_config.py small fusesoc_opts)
+ 1403  cd ~
+ 1404  cd /Users/jerryyun/RISC-V-RVV-Lite/build\n\n../../third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top \\n  prog.hex --max-cycles 20000 --trace-if --trace-d > sim_rvv.txt
+ 1405  cd RISC-V-RVV-Lite
+ 1406  cd third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator\n
+ 1407  rm -rf obj_dir\n
+ 1408  make -j 8 -f Vcve2_top.mk
+ 1409  make -j 8 -f config.mk
+ 1410  rm -rf obj_dir\n\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp
+ 1411  rm -rf obj_dir\n\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp
+ 1412  rm -rf obj_dir\n\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\n\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1413  rm -rf obj_dir\n\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\n\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1414  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\n\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1415  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\n\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1416  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1417  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1418  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1419  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1420  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1421  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1422  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1423  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1424  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1425  nl -ba ../src/openhwgroup_cve2_cve2_core_0.1/rtl/cve2_controller.sv | sed -n '710,735p'
+ 1426  grep -n "assign id_in_ready_o" -n ../src/openhwgroup_cve2_cve2_core_0.1/rtl/cve2_controller.sv\ngrep -n "assign instr_valid_clear_o" -n ../src/openhwgroup_cve2_cve2_core_0.1/rtl/cve2_controller.sv
+ 1427  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1428  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1429  nl -ba ../src/openhwgroup_cve2_cve2_core_0.1/rtl/cve2_controller.sv | sed -n '710,740p'
+ 1430  readlink -f ../src/openhwgroup_cve2_cve2_core_0.1/rtl/cve2_controller.sv
+ 1431  find .. -name "cve2_controller.sv" -print
+ 1432  code ../src/openhwgroup_cve2_cve2_core_0.1/rtl/cve2_controller.sv
+ 1433  open ../src/openhwgroup_cve2_cve2_core_0.1/rtl
+ 1434  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1435  open ../src/openhwgroup_cve2_cve2_core_0.1/rtl
+ 1436  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1437  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1438  rm -rf obj_dir\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp\nmake -C obj_dir -f Vcve2_top.mk -j 8
+ 1439  git add .
+ 1440  git status
+ 1441  Changes not staged for commit:\n  (use "git add <file>..." to update what will be committed)\n  (use "git restore <file>..." to discard changes in working directory)\n        modified:   ../../../cve2_core.core\n        modified:   ../../../rtl/cve2_controller.sv\n        modified:   ../../../rtl/cve2_core.sv\n        modified:   ../../../rtl/cve2_decoder.sv\n        modified:   ../../../rtl/cve2_id_stage.sv\n        modified:   ../../../rtl/cve2_vec_unit.sv\n\nUntracked files:\n  (use "git add <file>..." to include in what will be committed)\n        ../../../.DS_Store\n        ../src/\n        ../../../vendor/lowrisc_ip/ip/prim/util/vendor/google_verible_verilog_syntax_py/__pycache__/\n        ../../../venv_cve2/
+ 1442  git add ../../../cve2_core.core\ngit add ../../../rtl/cve2_controller.sv\ngit add ../../../rtl/cve2_core.sv\ngit add ../../../rtl/cve2_decoder.sv\ngit add ../../../rtl/cve2_id_stage.sv\ngit add ../../../rtl/cve2_vec_unit.sv
+ 1443  git status
+ 1444  git commit -m "Fix combinational loops in CVE2 controller and ID stage; clean Verilator lint build for RVV-Lite vector extension"
+ 1445  git push
+ 1446  rm -rf obj_dir\n\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --top-module cve2_top \\n  --Mdir obj_dir \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp
+ 1447  ls -la obj_dir | head
+ 1448  make -C obj_dir -f Vcve2_top.mk -j 8
+ 1449  verilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --top-module cve2_top \\n  --Mdir obj_dir \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  -CFLAGS "-I../../src/lowrisc_dv_scramble_model_0 -I../../vendor/lowrisc_ip/ip/prim/dv/prim_prince" \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp
+ 1450  make -C obj_dir -f Vcve2_top.mk -j 8
+ 1451  find .. -name prince_ref.h
+ 1452  rm -rf obj_dir\n\nverilator -f openhwgroup_cve2_cve2_top_0.1.vc \\n  --top-module cve2_top \\n  --Mdir obj_dir \\n  --unroll-count 72 \\n  -Wno-COMBDLY -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \\n  -CFLAGS "-I../../src/lowrisc_dv_crypto_prince_ref_0.1" \\n  --cc --exe \\n  /Users/jerryyun/RISC-V-RVV-Lite/sim/min_tb.cpp
+ 1453  make -C obj_dir -f Vcve2_top.mk -j 8
+ 1454  ls -la obj_dir/Vcve2_top
+ 1455  ./obj_dir/Vcve2_top prog.hex --max-cycles 500 --trace-if --trace-d
+ 1456  ls -l prog.hex\nwc -c prog.hex\nhead -n 20 prog.hex
+ 1457  ./obj_dir/Vcve2_top /Users/jerryyun/RISC-V-RVV-Lite/sw/build/prog.hex --max-cycles 500 --trace-if --trace-d
+ 1458  ./obj_dir/Vcve2_top /Users/jerryyun/RISC-V-RVV-Lite/sw/build/prog.hex --max-cycles 10000 --trace-if --trace-d
+ 1459  cd ../../../../..
+ 1460  ./obj_dir/Vcve2_top /Users/jerryyun/RISC-V-RVV-Lite/sw/build/prog.hex \\n  --max-cycles 10000 \\n  --print-every 1000 \\n  --trace-if
+ 1461  cd third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator
+ 1462  ./obj_dir/Vcve2_top /Users/jerryyun/RISC-V-RVV-Lite/sw/build/prog.hex \\n  --max-cycles 10000 \\n  --print-every 1000 \\n  --trace-if
+ 1463  ./obj_dir/Vcve2_top /Users/jerryyun/RISC-V-RVV-Lite/sw/build/prog.hex \\n  --max-cycles 10000 \\n  --print-every 1000
+ 1464  echo $HISTTIMEFORMAT
+ 1465  export HISTTIMEFORMAT="%F %T "
+ 1466  history | awk -v date="$(date -v-2d +%F)" '$2 >= date {print}' > last2days_commands.txt
+ 1467  cd ~
+ 1468  export HISTTIMEFORMAT="%F %T "
+ 1469  history | awk -v date="$(date -v-2d +%F)" '$2 >= date {print}' > last2days_commands.txt
+ 1470  ls
+ 1471  cd RISC-V-RVV-Lite
+ 1472  export HISTTIMEFORMAT="%F %T "
+ 1473  history | awk -v date="$(date -v-2d +%F)" '$2 >= date {print}' > last2days_commands.txt
+ 1474  export HISTTIMEFORMAT="%F %T "
+ 1475  history | head
+ 1476  cat ~/.bash_history

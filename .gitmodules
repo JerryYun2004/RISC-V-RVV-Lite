@@ -1,6 +1,6 @@
 [submodule "third_party/cve2"]
 	path = third_party/cve2
-	url = https://github.com/openhwgroup/cve2.git
+	url = https://github.com/JerryYun2004/cve2.git
 [submodule "third_party/cve2_rvv_lite"]
 	path = third_party/cve2_rvv_lite
 	url = https://github.com/JerryYun2004/CVe2-RVV-Lite-A1-Extension.git

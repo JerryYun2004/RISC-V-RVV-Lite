@@ -1,1 +1,0 @@
-zsh: no such file or directory: ../../third_party/cve2_rvv_lite/build/openhwgroup_cve2_cve2_top_0.1/lint-verilator/Vcve2_top

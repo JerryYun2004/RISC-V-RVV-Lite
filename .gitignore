@@ -1,0 +1,6 @@
+.DS_Store
+last_commands.txt
+
+sw/build/
+sim_test.txt
+third_party/.DS_Store

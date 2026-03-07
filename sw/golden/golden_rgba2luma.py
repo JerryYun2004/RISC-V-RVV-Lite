@@ -19,7 +19,7 @@ import re
 import sys
 from typing import Dict, List, Tuple
 
-NPIX = 16
+NPIX = 256
 
 def rgba2luma(p: int) -> int:
     r = (p >> 0) & 0xFF

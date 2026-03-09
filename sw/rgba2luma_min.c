@@ -16,7 +16,7 @@ static void print_str(const char *s) {
 }
 
 // Minimal deterministic input
-#define NPIX  (256)
+#define NPIX  (4096)
 
 static uint32_t in_pixels[NPIX];
 static uint8_t  out_luma[NPIX];

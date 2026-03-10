@@ -24,6 +24,12 @@ static vluint64_t main_time = 0;
 double sc_time_stamp() { return static_cast<double>(main_time); }
 
 // -----------------------------
+// Address map (match your link.ld / SoC map)
+// -----------------------------
+static constexpr uint32_t IMEM_BASE = 0x00000000u;
+static constexpr uint32_t DMEM_BASE = 0x80000000u;
+
+// -----------------------------
 // Simple memory model
 // -----------------------------
 static constexpr uint32_t IMEM_BYTES = 1024 * 1024;  // 1 MiB
@@ -31,21 +37,45 @@ static constexpr uint32_t DMEM_BYTES = 1024 * 1024;  // 1 MiB
 static std::vector<uint8_t> imem(IMEM_BYTES, 0);
 static std::vector<uint8_t> dmem(DMEM_BYTES, 0);
 
-static inline uint32_t load_le_u32(const std::vector<uint8_t>& mem, uint32_t addr) {
-  if (addr + 3u >= mem.size()) return 0;
-  return (uint32_t)mem[addr + 0u] |
-         ((uint32_t)mem[addr + 1u] << 8) |
-         ((uint32_t)mem[addr + 2u] << 16) |
-         ((uint32_t)mem[addr + 3u] << 24);
+static inline bool imem_translate(uint32_t addr, uint32_t& off) {
+  if (addr >= IMEM_BASE && addr < (IMEM_BASE + IMEM_BYTES)) {
+    off = addr - IMEM_BASE;
+    return true;
+  }
+  return false;
 }
 
-static inline void store_le_u32(std::vector<uint8_t>& mem, uint32_t addr, uint32_t wdata, uint8_t be) {
-  if (addr + 3u >= mem.size()) return;
+static inline uint32_t load_le_u32(const std::vector<uint8_t>& mem, uint32_t off) {
+  if (off + 3u >= mem.size()) return 0;
+  return (uint32_t)mem[off + 0u] |
+         ((uint32_t)mem[off + 1u] << 8) |
+         ((uint32_t)mem[off + 2u] << 16) |
+         ((uint32_t)mem[off + 3u] << 24);
+}
+
+static inline void store_le_u32(std::vector<uint8_t>& mem, uint32_t off, uint32_t wdata, uint8_t be) {
+  if (off + 3u >= mem.size()) return;
   for (int i = 0; i < 4; i++) {
     if (be & (1u << i)) {
-      mem[addr + (uint32_t)i] = (uint8_t)((wdata >> (8 * i)) & 0xFFu);
+      mem[off + (uint32_t)i] = (uint8_t)((wdata >> (8 * i)) & 0xFFu);
     }
   }
+}
+
+// Translate bus address -> dmem[] index.
+// Returns true if the address targets modeled DMEM, false otherwise.
+static inline bool dmem_translate(uint32_t addr, uint32_t& idx) {
+  // Map 0x8000_0000 .. 0x8000_0000+DMEM_BYTES-1 into dmem[0..]
+  if (addr >= DMEM_BASE && addr < (DMEM_BASE + DMEM_BYTES)) {
+    idx = addr - DMEM_BASE;
+    return true;
+  }
+  // Optionally still allow low addresses (some programs may use them).
+  if (addr < DMEM_BYTES) {
+    idx = addr;
+    return true;
+  }
+  return false;
 }
 
 // -----------------------------
@@ -56,13 +86,16 @@ static inline void store_le_u32(std::vector<uint8_t>& mem, uint32_t addr, uint32
 // Bytes listed in increasing addresses.
 // Returns number of bytes written.
 // -----------------------------
-static size_t load_objcopy_verilog_hex_bytes(const std::string& path, std::vector<uint8_t>& mem) {
+static size_t load_objcopy_verilog_hex_bytes(const std::string& path,
+                                             std::vector<uint8_t>& imem,
+                                             std::vector<uint8_t>& dmem) {
   std::ifstream f(path);
   if (!f) return 0;
 
   std::string tok;
   uint32_t addr = 0;
   size_t written = 0;
+  enum class Target { IMEM, DMEM, NONE } tgt = Target::IMEM;
 
   auto hex_to_u32 = [](const std::string& s) -> uint32_t {
     return (uint32_t)std::strtoul(s.c_str(), nullptr, 16);
@@ -73,13 +106,24 @@ static size_t load_objcopy_verilog_hex_bytes(const std::string& path, std::vecto
 
     if (tok[0] == '@') {
       addr = hex_to_u32(tok.substr(1));
+      uint32_t off = 0;
+      if (imem_translate(addr, off)) {
+        tgt = Target::IMEM;
+        addr = off;
+      } else if (dmem_translate(addr, off)) {
+        tgt = Target::DMEM;
+        addr = off;
+      } else {
+        tgt = Target::NONE;
+      }
       continue;
     }
 
     uint32_t b = hex_to_u32(tok) & 0xFFu;
-    if (addr < mem.size()) {
-      mem[addr] = (uint8_t)b;
-      written++;
+    if (tgt == Target::IMEM) {
+      if (addr < imem.size()) { imem[addr] = (uint8_t)b; written++; }
+    } else if (tgt == Target::DMEM) {
+      if (addr < dmem.size()) { dmem[addr] = (uint8_t)b; written++; }
     }
     addr++;
   }
@@ -121,9 +165,7 @@ int main(int argc, char** argv) {
   // Load program image
   imem.assign(IMEM_BYTES, 0);
   dmem.assign(DMEM_BYTES, 0);
-  size_t loaded = load_objcopy_verilog_hex_bytes(hex_path, imem);
-  // Safer bare-metal default: mirror image into DMEM too (overlapping region)
-  std::memcpy(dmem.data(), imem.data(), std::min(imem.size(), dmem.size()));
+  size_t loaded = load_objcopy_verilog_hex_bytes(hex_path, imem, dmem);
   std::cout << "[TB] Loaded " << hex_path << " into IMEM (bytes=" << loaded << ")\n";
 
   Vcve2_top* dut = new Vcve2_top();
@@ -159,13 +201,6 @@ int main(int argc, char** argv) {
   dut->fetch_enable_i = 1;
   std::cout << "[TB] Reset released, fetch_enable_i=1, starting simulation loop...\n";
 
-  // ----------------------------
-  // OBI 1-deep, fixed 1-cycle response per port (strict, Croc-style)
-  // - Accept on req&&gnt (sampled at clk=0 eval)
-  // - Respond next cycle with rvalid pulse (clk=0)
-  // - Never assert gnt during rvalid
-  // ----------------------------
-
   bool if_resp_due = false;
   uint32_t if_resp_addr = 0;
 
@@ -173,48 +208,47 @@ int main(int argc, char** argv) {
   uint32_t d_resp_addr = 0;
   bool d_resp_is_write = false;
 
-  // For debug, track last accepted
   uint64_t uart_chars = 0;
   bool done_seen = false;
   uint32_t done_value = 0;
   uint64_t done_cycle = 0;
 
   for (uint64_t cyc = 0; cyc < max_cycles; cyc++) {
-    // ----------------------------
-    // Phase A: clk low, drive subordinate inputs for this cycle, then eval
-    // ----------------------------
     dut->clk_i = 0;
 
-    // IF response
     dut->instr_rvalid_i = if_resp_due ? 1 : 0;
     dut->instr_err_i = 0;
     uint32_t if_insn = 0;
     if (if_resp_due) {
-      if_insn = load_le_u32(imem, if_resp_addr);
+      uint32_t off = 0;
+      if (imem_translate(if_resp_addr, off)) if_insn = load_le_u32(imem, off);
+      else if_insn = 0;
       dut->instr_rdata_i = if_insn;
     } else {
       dut->instr_rdata_i = 0;
     }
 
-    // D response
     dut->data_rvalid_i = d_resp_due ? 1 : 0;
     dut->data_err_i = 0;
     uint32_t d_rdata = 0;
     if (d_resp_due) {
-      d_rdata = d_resp_is_write ? 0 : load_le_u32(dmem, d_resp_addr);
+      if (d_resp_is_write) {
+        d_rdata = 0;
+      } else {
+        uint32_t idx = 0;
+        d_rdata = dmem_translate(d_resp_addr, idx) ? load_le_u32(dmem, idx) : 0;
+      }
       dut->data_rdata_i = d_rdata;
     } else {
       dut->data_rdata_i = 0;
     }
 
-    // Grants: only when not issuing rvalid on that port (strict 1-deep)
     dut->instr_gnt_i = (if_resp_due ? 0 : 1);
     dut->data_gnt_i  = (d_resp_due  ? 0 : 1);
 
     dut->eval();
     main_time++;
 
-    // Optional traces (log what we *responded* this cycle)
     if (trace_if && if_resp_due) {
       std::cout << "[IF] resp pc=0x" << std::hex << std::setw(8) << std::setfill('0')
                 << if_resp_addr << " insn=0x" << std::setw(8) << if_insn << std::dec << "\n";
@@ -225,13 +259,9 @@ int main(int argc, char** argv) {
                 << std::setw(8) << d_rdata << std::dec << "\n";
     }
 
-    // ----------------------------
-    // Sample requests at clk low (after eval) and decide accepts
-    // ----------------------------
     const bool if_fire = (dut->instr_req_o && dut->instr_gnt_i);
     const bool d_fire  = (dut->data_req_o  && dut->data_gnt_i);
 
-    // Latch what we accepted now; schedule responses for next cycle.
     bool if_resp_due_next = false;
     uint32_t if_resp_addr_next = 0;
 
@@ -254,7 +284,6 @@ int main(int argc, char** argv) {
       const uint32_t wdata = (uint32_t)dut->data_wdata_o;
       const uint8_t be = (uint8_t)dut->data_be_o;
 
-      // Apply store side effects at accept time.
       if (we) {
         if (addr == UART_MMIO_ADDR) {
           char c = (char)(wdata & 0xFFu);
@@ -265,11 +294,13 @@ int main(int argc, char** argv) {
           done_value = wdata;
           done_cycle = cyc;
         } else {
-          store_le_u32(dmem, addr, wdata, be);
+          uint32_t idx = 0;
+          if (dmem_translate(addr, idx)) {
+            store_le_u32(dmem, idx, wdata, be);
+          }
         }
       }
 
-      // Always provide a completion response next cycle (RD or WR).
       d_resp_due_next = true;
       d_resp_addr_next = addr;
       d_resp_is_write_next = we;
@@ -281,7 +312,6 @@ int main(int argc, char** argv) {
       }
     }
 
-    // Progress print (post-eval sampled at clk low)
     if (print_every != 0 && ((cyc % print_every) == 0)) {
       std::cout << "[TB] cyc=" << std::dec << cyc
                 << " instr_req=" << (int)dut->instr_req_o
@@ -298,14 +328,10 @@ int main(int argc, char** argv) {
                 << std::dec << "\n";
     }
 
-    // ----------------------------
-    // Phase B: rising edge
-    // ----------------------------
     dut->clk_i = 1;
     dut->eval();
     main_time++;
 
-    // Advance scheduled responses
     if_resp_due = if_resp_due_next;
     if_resp_addr = if_resp_addr_next;
 
@@ -313,7 +339,6 @@ int main(int argc, char** argv) {
     d_resp_addr = d_resp_addr_next;
     d_resp_is_write = d_resp_is_write_next;
 
-    // Termination: after DONE is observed, run a few cycles to let core consume completion, then stop.
     if (done_seen && (cyc > (done_cycle + 4))) {
       std::cout << "[TB] DONE seen (addr=0x" << std::hex << DONE_MMIO_ADDR
                 << ") value=0x" << std::setw(8) << std::setfill('0') << done_value

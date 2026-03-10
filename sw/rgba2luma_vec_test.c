@@ -12,7 +12,7 @@ static void print_str(const char *s) {
   while (*s) putchar_uart(*s++);
 }
 
-#define NPIX 512
+#define NPIX 8000
 
 static uint32_t in_pixels[NPIX];
 static uint32_t out_luma32[NPIX];   // <-- 32-bit output (no vse8.v)

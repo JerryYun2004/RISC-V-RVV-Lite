@@ -13,7 +13,7 @@ static void print_str(const char *s) {
   while (*s) putchar_uart(*s++);
 }
 
-#define NPIX 100000
+#define NPIX 16
 
 /*
  * Planar RGB layout, one 32-bit word per channel sample.

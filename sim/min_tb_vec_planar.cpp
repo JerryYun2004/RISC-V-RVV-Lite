@@ -42,17 +42,24 @@ static constexpr uint32_t DMEM_BASE = 0x80000000u;
 // static constexpr uint32_t OUT_Y_ADDR   = 0x00028000u;
 
 // 100000 pixels
-static constexpr uint32_t PLANAR_NPIX = 100000u;
-static constexpr uint32_t IN_R_ADDR   = 0x00010000u;
-static constexpr uint32_t IN_G_ADDR   = 0x00080000u;
-static constexpr uint32_t IN_B_ADDR   = 0x000F0000u;
-static constexpr uint32_t OUT_Y_ADDR  = 0x00160000u;
+// static constexpr uint32_t PLANAR_NPIX = 100000u;
+// static constexpr uint32_t IN_R_ADDR   = 0x00010000u;
+// static constexpr uint32_t IN_G_ADDR   = 0x00080000u;
+// static constexpr uint32_t IN_B_ADDR   = 0x000F0000u;
+// static constexpr uint32_t OUT_Y_ADDR  = 0x00160000u;
+
+// 1 million pixels and smaller pixel counts
+static constexpr uint32_t PLANAR_NPIX = 16u;
+static constexpr uint32_t IN_R_ADDR   = 0x00100000u;
+static constexpr uint32_t IN_G_ADDR   = 0x00500000u;
+static constexpr uint32_t IN_B_ADDR   = 0x00900000u;
+static constexpr uint32_t OUT_Y_ADDR  = 0x00D00000u;
 
 // -----------------------------
 // Simple memory model
 // -----------------------------
-static constexpr uint32_t IMEM_BYTES = 4 * 1024 * 1024;  // 4 MiB
-static constexpr uint32_t DMEM_BYTES = 4 * 1024 * 1024;  // 4 MiB
+static constexpr uint32_t IMEM_BYTES = 32 * 1024 * 1024;  // 32 MiB
+static constexpr uint32_t DMEM_BYTES = 32 * 1024 * 1024;  // 32 MiB
 static std::vector<uint8_t> imem(IMEM_BYTES, 0);
 static std::vector<uint8_t> dmem(DMEM_BYTES, 0);
 

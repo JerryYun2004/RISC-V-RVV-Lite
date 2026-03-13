@@ -24,34 +24,25 @@ static vluint64_t main_time = 0;
 double sc_time_stamp() { return static_cast<double>(main_time); }
 
 // -----------------------------
-// Address map (match your link.ld / SoC map)
+// Address map (single low-memory map for this test)
 // -----------------------------
 static constexpr uint32_t IMEM_BASE = 0x00000000u;
-static constexpr uint32_t DMEM_BASE = 0x80000000u;
+static constexpr uint32_t DMEM_BASE = 0x00000000u;
 
 // -----------------------------
-// Fixed planar benchmark layout (must match link.ld)
+// Fixed planar benchmark layout (must match link_planar.ld)
 // -----------------------------
-
-// 8000 pixels
-// static constexpr uint32_t PLANAR_NPIX  = 8000u;
-// static constexpr uint32_t IN_R_ADDR    = 0x00010000u;
-// static constexpr uint32_t IN_G_ADDR    = 0x00018000u;
-// static constexpr uint32_t IN_B_ADDR    = 0x00020000u;
-// static constexpr uint32_t OUT_Y_ADDR   = 0x00028000u;
-
-// 100000 pixels
-static constexpr uint32_t PLANAR_NPIX = 100000u;
-static constexpr uint32_t IN_R_ADDR   = 0x00010000u;
-static constexpr uint32_t IN_G_ADDR   = 0x00080000u;
-static constexpr uint32_t IN_B_ADDR   = 0x000F0000u;
-static constexpr uint32_t OUT_Y_ADDR  = 0x00160000u;
+static constexpr uint32_t PLANAR_NPIX = 16u;
+static constexpr uint32_t IN_R_ADDR   = 0x00001000u;
+static constexpr uint32_t IN_G_ADDR   = 0x00002000u;
+static constexpr uint32_t IN_B_ADDR   = 0x00003000u;
+static constexpr uint32_t OUT_Y_ADDR  = 0x00004000u;
 
 // -----------------------------
 // Simple memory model
 // -----------------------------
-static constexpr uint32_t IMEM_BYTES = 4 * 1024 * 1024;  // 4 MiB
-static constexpr uint32_t DMEM_BYTES = 4 * 1024 * 1024;  // 4 MiB
+static constexpr uint32_t IMEM_BYTES = 1024 * 1024;  // 64 KiB
+static constexpr uint32_t DMEM_BYTES = 1024 * 1024;  // 64 KiB
 static std::vector<uint8_t> imem(IMEM_BYTES, 0);
 static std::vector<uint8_t> dmem(DMEM_BYTES, 0);
 

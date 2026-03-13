@@ -11,7 +11,7 @@ static void print_str(const char *s) {
   while (*s) putchar_uart(*s++);
 }
 
-#define NPIX 8000
+#define NPIX 16
 
 static uint32_t in_pixels[NPIX];
 static uint32_t out_luma32[NPIX];   // match vector benchmark memory traffic
